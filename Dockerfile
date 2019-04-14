@@ -11,4 +11,4 @@ RUN set -xe && \
   tar -xf node.tar.xz --strip-components=1 -C /usr/local && \
   rm node.tar.xz
 WORKDIR /app
-CMD ["mix", "phx.server"]
+CMD ["sh", "-c", "mix deps.get && npm --prefix assets/ install && mix phx.server"]
